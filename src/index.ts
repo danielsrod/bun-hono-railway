@@ -8,10 +8,17 @@ const app = new Hono();
 app.use('/favicon.ico', serveStatic({ path: './public/favicon.ico' }));
 
 app.get("/", (c) => {
-  return c.json({ message: "Hello World!" });
+  return c.json({
+    status: true,
+    message: 'Success to deploy bun at railway',
+    dados: [{
+      name: 'Daniel Rodrigues',
+      page: 'https://linktr.ee/danielsrod'
+    }]
+  });
 });
 
-console.log(`Running at http://localhost:${port}`);
+console.info(`Running at *:${port}`);
 
 export default {
   port,
